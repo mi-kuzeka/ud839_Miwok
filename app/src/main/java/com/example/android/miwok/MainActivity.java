@@ -15,7 +15,11 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 // import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,5 +31,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        //Set clicklistener on TextViews
+        setListenerStartActivity(findViewById(R.id.numbers), NumbersActvity.class);
+        setListenerStartActivity(findViewById(R.id.family), FamilyActivity.class);
+        setListenerStartActivity(findViewById(R.id.colors), ColorsActivity.class);
+        setListenerStartActivity(findViewById(R.id.phrases), PhrasesActivity.class);
+    }
+
+    /*
+    This method sets onClickListener to view and starts respective Activity
+     */
+    private void setListenerStartActivity(View view, final Class activity) {
+        view.setOnClickListener(v -> {
+            startActivity(new Intent(this, activity));
+        });
     }
 }
