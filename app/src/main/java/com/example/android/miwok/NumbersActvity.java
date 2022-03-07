@@ -10,21 +10,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class NumbersActvity extends AppCompatActivity {
-    ArrayList<String> words;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers_actvity);
 
         //Initialize an array of words
-        words = new ArrayList();
+        ArrayList<Word> words = new ArrayList();
         Collections.addAll(words,
-                "one", "two", "three", "four", "five",
-                "six", "seven", "eight", "nine", "ten");
+                new Word("one","lutti"),
+                new Word("two", "otiiko"),
+                new Word("three","tolookosu"),
+                new Word("four", "oyyisa"),
+                new Word("five", "massokka"),
+                new Word("six","temmokka"),
+                new Word("seven","kenekaku"),
+                new Word("eight","kawinta"),
+                new Word("nine","wo’e"),
+                new Word("ten","na’aacha"));
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
+        WordAdapter adapter = new WordAdapter(this, words);
         ListView listView = findViewById(R.id.list);
-        listView.setAdapter(itemsAdapter);
+        listView.setAdapter(adapter);
      }
 }

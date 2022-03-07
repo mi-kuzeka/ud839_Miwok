@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setListenerStartActivity(findViewById(R.id.phrases), PhrasesActivity.class);
     }
 
-    /*
-    This method sets onClickListener to view and starts respective Activity
+    /**
+     *  This method sets onClickListener to view and starts respective Activity
      */
     private void setListenerStartActivity(View view, final Class activity) {
         view.setOnClickListener(v -> {
