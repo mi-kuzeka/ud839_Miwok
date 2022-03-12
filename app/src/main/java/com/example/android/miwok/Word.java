@@ -20,14 +20,21 @@ public class Word {
      */
     private int mImageId = NO_IMAGE_PROVIDED;
 
-    public Word(String defaultTranslation, String miwokTranslation) {
+    /**
+     * ID of audio resource with words pronunciation
+     */
+    private int mAudioResourceId;
+
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         mDefaulTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation, int imageId) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId, int imageId) {
         mDefaulTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
         mImageId = imageId;
     }
 
@@ -58,4 +65,9 @@ public class Word {
     public boolean hasImage() {
         return mImageId != NO_IMAGE_PROVIDED;
     }
+
+    /**
+     * Return the audio resource ID of the word.
+     */
+    public int getAudioResourceId() { return mAudioResourceId; }
 }

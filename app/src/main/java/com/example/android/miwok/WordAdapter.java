@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,8 +38,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word currentWord = getItem(position);
 
         //Set background color for word and translation
-        LinearLayout wordsLayout = listItemView.findViewById(R.id.words_layout);
-        wordsLayout.setBackgroundColor(mBackgroundColor);
+        listItemView.setBackgroundColor(mBackgroundColor);
 
         TextView miwokTextView = listItemView.findViewById(R.id.miwok_text_view);
         miwokTextView.setText(currentWord.getMiwokTranslation());
