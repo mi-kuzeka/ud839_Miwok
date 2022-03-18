@@ -86,6 +86,7 @@ public class NumbersActvity extends AppCompatActivity {
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    releaseMediaPlayer();
                     mMediaPlayer = MediaPlayer.create(NumbersActvity.this, word.getAudioResourceId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
@@ -113,6 +114,7 @@ public class NumbersActvity extends AppCompatActivity {
     }
 
     private void releaseMediaPlayer() {
+        if (mMediaPlayer != null) mMediaPlayer.release();
         mMediaPlayer = null;
         mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
     }

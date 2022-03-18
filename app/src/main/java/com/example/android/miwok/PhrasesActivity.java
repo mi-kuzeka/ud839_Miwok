@@ -76,6 +76,7 @@ public class PhrasesActivity extends AppCompatActivity {
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    releaseMediaPlayer();
                     mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
@@ -103,6 +104,7 @@ public class PhrasesActivity extends AppCompatActivity {
     }
 
     private void releaseMediaPlayer() {
+        if (mMediaPlayer != null) mMediaPlayer.release();
         mMediaPlayer = null;
         mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
     }
