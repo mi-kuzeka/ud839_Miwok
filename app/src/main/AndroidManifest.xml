@@ -11,19 +11,23 @@
         <activity
             android:name=".ColorsActivity"
             android:label="@string/category_colors"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".FamilyActivity"
             android:label="@string/category_family"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".PhrasesActivity"
             android:label="@string/category_phrases"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".NumbersActvity"
             android:label="@string/category_numbers"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
