@@ -79,6 +79,7 @@ public class NumbersActvity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = words.get(position);
+                releaseMediaPlayer();
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         // Use the music stream.
                         AudioManager.STREAM_MUSIC,
@@ -86,7 +87,6 @@ public class NumbersActvity extends AppCompatActivity {
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    releaseMediaPlayer();
                     mMediaPlayer = MediaPlayer.create(NumbersActvity.this, word.getAudioResourceId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
