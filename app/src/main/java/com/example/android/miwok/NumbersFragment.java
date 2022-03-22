@@ -115,7 +115,7 @@ public class NumbersFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        pauseMediaPlayer();
+        releaseMediaPlayer();
     }
 
     @Override

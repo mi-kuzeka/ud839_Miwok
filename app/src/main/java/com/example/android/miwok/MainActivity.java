@@ -18,10 +18,15 @@ package com.example.android.miwok;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
 // import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,11 +37,22 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        //Set clicklistener on TextViews
-        setListenerStartActivity(findViewById(R.id.numbers), NumbersActvity.class);
-        setListenerStartActivity(findViewById(R.id.family), FamilyActivity.class);
-        setListenerStartActivity(findViewById(R.id.colors), ColorsActivity.class);
-        setListenerStartActivity(findViewById(R.id.phrases), PhrasesActivity.class);
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager2 viewPager = (ViewPager2) findViewById(R.id.viewpager);
+
+        // Create an adapter that knows which fragment should be shown on each page
+        viewPager.setAdapter(new FixedTabsFragmentStateAdapter(getSupportFragmentManager(), getLifecycle()));
+
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        List<String> tabTitles = new ArrayList<>();
+        tabTitles.add(getString(R.string.category_numbers));
+        tabTitles.add(getString(R.string.category_family));
+        tabTitles.add(getString(R.string.category_colors));
+        tabTitles.add(getString(R.string.category_phrases));
+
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            tab.setText(tabTitles.get(position));
+        }).attach();
     }
 
     /**

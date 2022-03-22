@@ -12,64 +12,25 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/tan_background"
-    tools:context="com.example.android.miwok.MainActivity">
+    tools:context="com.example.android.miwok.MainActivity"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        app:tabGravity="fill"
+        app:tabMaxWidth="0dp"
+        app:tabMode="fixed" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/category_numbers">
-
-            <TextView
-                android:id="@+id/numbers"
-                style="@style/CategoryStyle"
-                android:background="?android:attr/selectableItemBackground"
-                android:text="@string/category_numbers" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/category_family">
-
-            <TextView
-                android:id="@+id/family"
-                style="@style/CategoryStyle"
-                android:background="?android:attr/selectableItemBackground"
-                android:text="@string/category_family" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/category_colors">
-
-            <TextView
-                android:id="@+id/colors"
-                style="@style/CategoryStyle"
-                android:background="?android:attr/selectableItemBackground"
-                android:text="@string/category_colors" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/category_phrases">
-
-            <TextView
-                android:id="@+id/phrases"
-                style="@style/CategoryStyle"
-                android:background="?android:attr/selectableItemBackground"
-                android:text="@string/category_phrases" />
-        </FrameLayout>
-    </LinearLayout>
-</ScrollView>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
