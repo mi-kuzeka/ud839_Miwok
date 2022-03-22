@@ -27,10 +27,16 @@
         android:layout_height="wrap_content"
         app:tabGravity="fill"
         app:tabMaxWidth="0dp"
-        app:tabMode="fixed" />
+        app:tabMode="fixed"
+        app:tabTextColor="@color/tab_text_color"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/tab_selected_text_color"
+        android:background="@color/primary_color"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/primary_color"/>
 </LinearLayout>
